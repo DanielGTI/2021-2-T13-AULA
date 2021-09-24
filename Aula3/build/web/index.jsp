@@ -1,3 +1,4 @@
+<%@page import="Suporte.Unidades" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -6,7 +7,7 @@
         <title>Formulario</title>
     </head>
     <body>
-        <h3>Cadastro de dados</h3>
+        <h3>Cadastro de Produtos</h3>
         <div>
 
             <form action="TratarErros.jsp" name="FormularioItens" method="post">
@@ -14,7 +15,7 @@
     Itens de estoque:
     Código:      <input type="text" name="codigo" >
     Descrição:   <input type="text" name="descricao" >
-    unidade:     <input type="text" name="unidade">
+    unidade:     <%=new Unidades().getUnidades()%>
     saldo:       <input type="text" name="saldo">
     Valor Unico: <input type="text" name="valorUnitario">
     Observação:  <input  type="text" name="obs">
