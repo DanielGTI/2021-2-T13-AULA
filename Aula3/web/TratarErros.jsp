@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" errorPage="InformacaoErros.jsp"%>
+<jsp:useBean id="item" class="Suporte.Estoque" />
+<jsp:setProperty name="item" property="*" />
 <!DOCTYPE html>
 <html>
     <head>
@@ -6,8 +8,10 @@
         <title>Captura de dados</title>
     </head>
     <body>
-        <h3>Cadastro de Itens com tratamento de erros:</h3>
+        <h3>Cadastro de Itens com tratamento de erros: AÇÃO</h3>
         <% 
+            /*
+            //  PROCEDIMENTO ANTERIOR
             
             int codigo = Integer.parseInt(request.getParameter("codigo"));
             String descricao = request.getParameter("descricao");
@@ -17,7 +21,26 @@
             String obs = request.getParameter("obs");
             String acao = request.getParameter("incluir");
         
+            out.print("<br>Codigo = "+codigo);
+            out.print("<br>Descrição = " + descricao);
+            out.print("<br>Valor Unitário = " + valorUnitario);
+            
+            */
         %>
-        Dados recebidos.
+        
+        <pre>
+            
+        Código = <%=item.getCodigo()%>
+        Descrição = <%=item.getDescricao()%>                
+        Unidade = <%=item.getUnidade()%>
+        Saldo = <%=item.getSaldo()%>
+        Valor Unitário = <%=item.getValorUnitario()%>
+        Observação = <%=item.getObs()%>
+
+        </pre>
+        
+        <br>Dados recebidos.
+        
+        
     </body>
 </html>
