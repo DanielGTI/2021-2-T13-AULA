@@ -3,16 +3,27 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.util.List;
+import java.util.ArrayList;
+import Suporte.Contato;
 
-public final class vetores_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class colecao_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
-
-        String DiaDaSemana( int nDiaDaSemana ){
-            String dias[] = {"Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"};
-            return dias[ nDiaDaSemana - 1 ];
-        }
  
+    
+    List<Contato> getContatos(){
+        
+        List<Contato> contatos = new ArrayList<Contato>();
+        
+        contatos.add(new Contato("Daniel", "123456", 44));
+        contatos.add(new Contato("Leonardo", "456789", 20));
+        contatos.add(new Contato("Fabiano", "987654", 30));
+        
+        return contatos;
+    }
+    
+
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List<String> _jspx_dependants;
@@ -47,60 +58,30 @@ public final class vetores_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write('\n');
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>Vetor</title>\n");
+      out.write("        <title>Colecao</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        <h2>Exemplo de Vetores</h2>\n");
+      out.write("        <h1>Coleção:</h1>\n");
       out.write("        ");
- 
-            int nomeVetor[] = {45, 11, 32, 3};
-            
-            out.print("<br>Vetor (0) = " + nomeVetor[0]);
-            out.print("<br>---------------------<br>");
-            for( int i = 0; i < nomeVetor.length ; i++){
-                out.print("<br>Vetor (" + i + ") = " + nomeVetor[i] );
-            }
-            out.print("<br>---------------------<br>");
 
-            for( int i=1 ; i<=7 ; i++){
-                out.print("<br>" + i + "º Dia da semana = " + DiaDaSemana(i) );
-            }
-            out.print("<br>---------------------<br>");
-            
-            for( int i = 1 ; i <= 7 ; i++){
-                out.print(DiaDaSemana(i));
-                if( i <= 5 )    out.print(", ");
-                if( i == 6)     out.print(" e ");
-                if( i == 7 )    out.print(".");
-            }
-            
-            String aulas[][] = {
-                {"Dia da Semana     ", "Aula"},
-                {"Domingo           ", "Sem Aula"},
-                {"Segunda           ", "Programação"},
-                {"Terça             ", "Programação"},
-                {"Quarta            ", "Programação"},
-                {"Quinta            ", "Programação"},
-                {"Sexta             ", "Programação"},
-                {"Sábado            ", "Sem Aula"}                
-            };
-            out.print("<br>---------------------<br>");
-            out.print("<pre>");
-            for( int L=0 ; L<aulas.length ; L++){
-                for( int C=0 ; C < aulas[L].length ; C++){
-                    out.print(aulas[L][C]);
+                List<Contato> classeSI = getContatos();
+                for( Contato estudante : classeSI ){
+                    out.print("<br>----------<br>");
+                    out.print("Nome = " + estudante.getNome() );
+                    out.print("<br>RA = " + estudante.getRa() );
+                    out.print("<br>Idade" + estudante.getIdade());
                 }
-                out.print("<br>");
-            }
-            out.print("</pre>");
-            
-
+                
         
       out.write("\n");
       out.write("        \n");
