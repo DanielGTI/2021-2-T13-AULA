@@ -5,7 +5,6 @@
 <%! 
     
     List<Contato> getContatos(){
-        
         List<Contato> contatos = new ArrayList<Contato>();
         
         contatos.add(new Contato("Daniel", "123456", 44));
@@ -32,8 +31,7 @@
                     out.print("Nome = " + estudante.getNome() );
                     out.print("<br>RA = " + estudante.getRa() );
                     out.print("<br>Idade = " + estudante.getIdade());
-                }
-                
+                }                
         %>
         
     </body>
