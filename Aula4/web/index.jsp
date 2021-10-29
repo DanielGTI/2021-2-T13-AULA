@@ -5,7 +5,6 @@
         <%@include file="header.jsp" %>
     </head>
 
-                
-         <%@include file="view/view_login.jsp" %>
+
 
 </html>
