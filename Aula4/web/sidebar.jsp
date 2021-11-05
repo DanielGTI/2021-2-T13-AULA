@@ -28,7 +28,7 @@
               </div>
               <div class="profile_info">
                 <span>Bem vindo,</span>
-                <h2>Daniel</h2>
+                <h2><% out.print(session.getAttribute("usuario")); %> </h2>
               </div>
               <div class="clearfix"></div>
             </div>
@@ -55,36 +55,23 @@
                   </li>
                   <li><a><i class="fa fa-desktop"></i> Turmas <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="general_elements.html">General Elements</a></li>
-                      <li><a href="media_gallery.html">Media Gallery</a></li>
-                      <li><a href="typography.html">Typography</a></li>
-                      <li><a href="icons.html">Icons</a></li>
-                      <li><a href="glyphicons.html">Glyphicons</a></li>
-                      <li><a href="widgets.html">Widgets</a></li>
-                      <li><a href="invoice.html">Invoice</a></li>
-                      <li><a href="inbox.html">Inbox</a></li>
-                      <li><a href="calendar.html">Calendar</a></li>
+                      <li><a href="turma.jsp">Cadastrar turmas</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-table"></i> Cursos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="tables.html">Tables</a></li>
-                      <li><a href="tables_dynamic.html">Table Dynamic</a></li>
+                      <li><a href="curso.jsp">Cadastro de cursos</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> Relatórios <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="chartjs.html">Chart JS</a></li>
-                      <li><a href="chartjs2.html">Chart JS2</a></li>
-                      <li><a href="morisjs.html">Moris JS</a></li>
-                      <li><a href="echarts.html">ECharts</a></li>
-                      <li><a href="other_charts.html">Other Charts</a></li>
+                      <li><a href="aluno.jsp">Alunos</a></li>
+                      <li><a href="professor.jsp">Professores</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-clone"></i> Professores <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="fixed_sidebar.html">Fixed Sidebar</a></li>
-                      <li><a href="fixed_footer.html">Fixed Footer</a></li>
+                      <li><a href="professor.jsp">Cadastro de professores</a></li>
                     </ul>
                   </li>
                 </ul>

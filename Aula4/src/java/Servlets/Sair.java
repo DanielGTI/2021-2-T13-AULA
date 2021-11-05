@@ -1,16 +1,23 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(name = "Logar", urlPatterns = {"/Logar"})
-public class Logar extends HttpServlet {
+/**
+ *
+ * @author DanieL
+ */
+public class Sair extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,10 +36,10 @@ public class Logar extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Logar</title>");            
+            out.println("<title>Servlet Sair</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Logar at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Sair at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -50,8 +57,10 @@ public class Logar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-        response.sendRedirect("login.jsp");
+        
+                HttpSession session = request.getSession();
+                session.setAttribute("usuario", "");
+                response.sendRedirect("login.jsp");
     }
 
     /**
@@ -66,26 +75,6 @@ public class Logar extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-    
-        try {
-            String login = request.getParameter("user");
-            String senha = request.getParameter("senha");
-
-            HttpSession session = request.getSession();
-            
-            if ( login.equals("daniel") && senha.equals("123") ){
-                response.sendRedirect("aluno.jsp");
-                session.setAttribute("usuario", login);
-                session.setMaxInactiveInterval(20);
-                
-            }else{
-                response.sendRedirect("login.jsp");
-                session.setAttribute("usuario", "");
-            }
-            
-        } catch (Exception e) {
-            response.sendRedirect("login.jsp");                
-        }
     }
 
     /**

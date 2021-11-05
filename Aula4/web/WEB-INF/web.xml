@@ -4,9 +4,17 @@
         <servlet-name>Logar</servlet-name>
         <servlet-class>Servlets.Logar</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Sair</servlet-name>
+        <servlet-class>Servlets.Sair</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Logar</servlet-name>
         <url-pattern>/Logar</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Sair</servlet-name>
+        <url-pattern>/Sair</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
