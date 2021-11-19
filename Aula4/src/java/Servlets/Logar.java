@@ -8,45 +8,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.dao.UsuarioDAO;
 
 @WebServlet(name = "Logar", urlPatterns = {"/Logar"})
 public class Logar extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Logar</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Logar at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -54,37 +24,33 @@ public class Logar extends HttpServlet {
         response.sendRedirect("login.jsp");
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
     
         try {
+            
+            UsuarioDAO user = new UsuarioDAO();
+            
             String login = request.getParameter("user");
             String senha = request.getParameter("senha");
 
             HttpSession session = request.getSession();
             
-            if ( login.equals("daniel") && senha.equals("123") ){
+            if ( user.autenticar(login, senha) ){
                 response.sendRedirect("aluno.jsp");
                 session.setAttribute("usuario", login);
-                session.setMaxInactiveInterval(20);
+                session.setMaxInactiveInterval(60);
                 
             }else{
                 response.sendRedirect("login.jsp");
                 session.setAttribute("usuario", "");
+                session.invalidate();
             }
             
         } catch (Exception e) {
-            response.sendRedirect("login.jsp");                
+            response.sendRedirect("login.jsp");
         }
     }
 

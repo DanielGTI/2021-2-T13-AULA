@@ -41,7 +41,18 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                      LIsta de alunos ...
+                      Dados para alunos:
+                      
+                      <br>Nome (string)
+                      <br>RA (string)
+                      <br>CPF (string)
+                      <br>email (string)
+                      <br>Data de Nascimento (data)
+                      <br>Telefone (int)
+                      <br>Endereco (string)
+                      <br>CEP (string)
+                       
+                      
                   </div>
                 </div>
               </div>
